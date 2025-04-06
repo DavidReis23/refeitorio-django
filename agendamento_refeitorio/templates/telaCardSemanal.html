@@ -1,0 +1,54 @@
+{% load static %}
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horário Semanal</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Horário Semanal do Refeitório</h1>
+        <table>
+            <tr>
+                <th>Dia</th>
+                <th>Café da Manhã</th>
+                <th>Almoço</th>
+                <th>Jantar</th>
+            </tr>
+            <tr>
+                <td>Segunda-feira</td>
+                <td>07:00 - 09:00</td>
+                <td>11:30 - 14:00</td>
+                <td>18:30 - 21:00</td>
+            </tr>
+            <tr>
+                <td>Terça-feira</td>
+                <td>07:00 - 09:00</td>
+                <td>11:30 - 14:00</td>
+                <td>18:30 - 21:00</td>
+            </tr>
+            <tr>
+                <td>Quarta-feira</td>
+                <td>07:00 - 09:00</td>
+                <td>11:30 - 14:00</td>
+                <td>18:30 - 21:00</td>
+            </tr>
+            <tr>
+                <td>Quinta-feira</td>
+                <td>07:00 - 09:00</td>
+                <td>11:30 - 14:00</td>
+                <td>18:30 - 21:00</td>
+            </tr>
+            <tr>
+                <td>Sexta-feira</td>
+                <td>07:00 - 09:00</td>
+                <td>11:30 - 14:00</td>
+                <td>18:30 - 21:00</td>
+            </tr>
+        </table>
+        <br>
+        <a href="{% url 'index' %}" class="button">Página Inicial</a>
+    </div>
+</body>
+</html>

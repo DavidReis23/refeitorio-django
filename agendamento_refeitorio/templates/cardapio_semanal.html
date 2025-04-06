@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápio Semanal</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Cardápio Semanal</h1>
+        <table>
+            <tr>
+                <th>Dia</th>
+                <th>Prato Principal</th>
+                <th>Acompanhamentos</th>
+                <th>Sobremesa</th>
+            </tr>
+            <tr>
+                <td>Segunda-feira</td>
+                <td>Frango Grelhado</td>
+                <td>Arroz, Feijão, Salada</td>
+                <td>Pudim</td>
+            </tr>
+            <tr>
+                <td>Terça-feira</td>
+                <td>Peixe Assado</td>
+                <td>Purê de batata, Legumes cozidos</td>
+                <td>Frutas</td>
+            </tr>
+            <tr>
+                <td>Quarta-feira</td>
+                <td>Carne de Panela</td>
+                <td>Macarrão ao alho e óleo, Salada</td>
+                <td>Gelatina</td>
+            </tr>
+            <tr>
+                <td>Quinta-feira</td>
+                <td>Feijoada</td>
+                <td>Arroz, Couve, Laranja</td>
+                <td>Doce de leite</td>
+            </tr>
+            <tr>
+                <td>Sexta-feira</td>
+                <td>Strogonoff de Frango</td>
+                <td>Batata palha, Arroz</td>
+                <td>Mousse de maracujá</td>
+            </tr>
+        </table>
+        <br>
+        <a href="{% url 'index' %}" class="button">Página Inicial</a>
+    </div>
+</body>
+</html>

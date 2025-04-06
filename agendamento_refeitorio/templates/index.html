@@ -1,0 +1,38 @@
+{% load static %}
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funcionamento do Refeitório</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Funcionamento do Refeitório</h1>
+        <div class="horarios">
+            <h2>Horários</h2>
+            <p><strong>Merenda:</strong>09:25 - 9:50</p>
+            <p><strong>Almoço:</strong> 11:50 - 13:00</p>
+            <p><strong>Jantar:</strong> 20:25 - 20:50</p>
+        </div>
+        <div class="cardapio">
+            <h2>Cardápio do Dia</h2>
+            <ul>
+                <li>Arroz</li>
+                <li>Feijão</li>
+                <li>Frango Grelhado</li>
+                <li>Salada Mista</li>
+                <li>Suco Natural</li>
+            </ul>
+        </div>
+        <div class="informacoes">
+            <h2>Informações Adicionais</h2>
+            <p>Almoço para as turmas que vão ter aula no periodo vespertino.</p>
+        </div>
+        <a href="{% url 'telaCardSemanal' %}" class="button">Ver Horário Semanal</a>
+        <a href="{% url 'cardapio_semanal' %}" class="button">Ver Cardápio Semanal</a>
+        <a href="{% url 'agendCard' %}" class="button">Agendar Refeição</a>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,106 @@
+{% load static %}
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento de Refeição</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Agendamento de Refeição</h1>
+        <form id="agendamento-form">
+            <label for="refeicao">Selecione a refeição:</label>
+            <select id="refeicao" name="refeicao">
+                <option value="merenda">Merenda</option>
+                <option value="almoco">Almoço</option>
+                <option value="jantar">Jantar</option>
+            </select>
+            
+            <div id="opcoes-merenda" class="opcoes-refeicao">
+                <h2>Selecione os itens da merenda (Escolha 1 principal e 1 acompanhamento):</h2>
+                <div class="opcoes-cardapio">
+                    <input type="radio" id="pao" name="principal-merenda" value="Pão com Manteiga">
+                    <label for="pao">Pão com Manteiga</label><br>
+                    <input type="radio" id="cereal" name="principal-merenda" value="Cereal com Leite">
+                    <label for="cereal">Cereal com Leite</label><br>
+                </div>
+                <div class="opcoes-cardapio">
+                    <input type="checkbox" id="suco" name="acompanhamento-merenda" value="Suco Natural">
+                    <label for="suco">Suco Natural</label><br>
+                    <input type="checkbox" id="cafe-leite" name="acompanhamento-merenda" value="Café com Leite">
+                    <label for="cafe-leite">Café com Leite</label>
+                </div>
+            </div>
+            
+            <div id="opcoes-almoco" class="opcoes-refeicao">
+                <h2>Selecione a mistura principal (Escolha 1):</h2>
+                <div class="opcoes-cardapio">
+                    <input type="radio" id="frango" name="principal-almoco" value="Frango Assado">
+                    <label for="frango">Frango Grelhado</label><br>
+                    <input type="radio" id="peixe" name="principal-almoco" value="Peixe Assado">
+                    <label for="peixe">Peixe Assado</label><br>
+                    <input type="radio" id="carne" name="principal-almoco" value="Carne de Carneiro">
+                    <label for="carne">Carne de Panela</label><br>
+                    <input type="radio" id="feijoada" name="principal-almoco" value="Feijoada">
+                    <label for="feijoada">Feijoada</label><br>
+                    <input type="radio" id="strogonoff" name="principal-almoco" value="Strogonoff de Frango">
+                    <label for="strogonoff">Strogonoff de Frango</label>
+                </div>
+                
+                <h2>Selecione até 2 acompanhamentos:</h2>
+                <div class="opcoes-cardapio">
+                    <input type="checkbox" id="arroz" name="acompanhamento-almoco" value="Arroz">
+                    <label for="arroz">Arroz</label><br>
+                    <input type="checkbox" id="feijao" name="acompanhamento-almoco" value="Feijao">
+                    <label for="feijao">Feijão</label><br>
+                    <input type="checkbox" id="salada" name="acompanhamento-almoco" value="Salada">
+                    <label for="salada">Salada</label><br>
+                    <input type="checkbox" id="pure" name="acompanhamento-almoco" value="Pure de Batata">
+                    <label for="pure">Purê de Batata</label><br>
+                    <input type="checkbox" id="macarrao" name="acompanhamento-almoco" value="Macarrão ao Alho e Óleo">
+                    <label for="macarrao">Macarrão ao Alho e Óleo</label>
+                </div>
+            </div>
+            
+            <button type="submit" class="button">Agendar Refeição</button>
+        </form>
+        <a href="{% url 'index' %}" class="button">Página Inicial</a>
+    </div>
+    
+    <script>
+        document.getElementById("refeicao").addEventListener("change", function() {
+            let selecionado = this.value;
+            document.getElementById("opcoes-merenda").style.display = (selecionado === "merenda") ? "block" : "none";
+            document.getElementById("opcoes-almoco").style.display = (selecionado === "almoco" || selecionado === "jantar") ? "block" : "none";
+        });
+        
+        document.getElementById("agendamento-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let refeicaoSelecionada = document.getElementById("refeicao").value;
+            let principais, acompanhamentos;
+            
+            if (refeicaoSelecionada === "merenda") {
+                principais = document.querySelectorAll('input[name="principal-merenda"]:checked');
+                acompanhamentos = document.querySelectorAll('input[name="acompanhamento-merenda"]:checked');
+                if (principais.length !== 1 || acompanhamentos.length !== 1) {
+                    alert("Selecione exatamente 1 prato principal e 1 acompanhamento para o Café da Manhã.");
+                    return;
+                }
+            } else {
+                principais = document.querySelectorAll('input[name="principal-almoco"]:checked');
+                acompanhamentos = document.querySelectorAll('input[name="acompanhamento-almoco"]:checked');
+                if (principais.length !== 1) {
+                    alert("Selecione exatamente 1 prato principal para o Almoço/Jantar.");
+                    return;
+                }
+                if (acompanhamentos.length > 2) {
+                    alert("Selecione no máximo 2 acompanhamentos.");
+                    return;
+                }
+            }
+            alert("Refeição agendada com sucesso!");
+        });
+    </script>
+</body>
+</html>

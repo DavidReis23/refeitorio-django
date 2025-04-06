@@ -105,3 +105,32 @@ refeitorio_project/
 - Separando estáticos (CSS) e templates (HTML)
 
 ---
+
+A gente usou *Django* porque ele é um *framework completo* para desenvolvimento de aplicações web em Python. Aqui vão alguns motivos específicos do porque usamos ele no nosso projeto:
+
+---
+
+*1. Rápida criação de sites funcionais**
+Django já vem com muitas funcionalidades prontas: sistema de URLs, templates HTML, integração com banco de dados e muito mais. Isso acelera o desenvolvimento.
+
+---
+
+*2. Organização e boas práticas**
+Ele incentiva o uso do padrão **MVC (Model-View-Controller)** (no Django chamado de **MTV: Model-Template-View**), o que ajuda a manter o projeto bem organizado, modular e fácil de manter.
+
+---
+
+*3. Admin automático**
+Com poucos comandos, você já tem um painel de administração pronto para gerenciar os dados da aplicação.
+
+---
+
+*4. Segurança**
+Django vem com recursos de segurança integrados: proteção contra injeção SQL, CSRF, XSS e outros ataques comuns.
+
+---
+
+*5. Comunidade ativa**
+Por ser amplamente usado, você encontra fácil documentação, tutoriais e ajuda em fóruns e grupos.
+
+---
